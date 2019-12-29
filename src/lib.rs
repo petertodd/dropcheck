@@ -107,7 +107,6 @@ impl fmt::Debug for DropState {
 
 impl Drop for DropState {
     fn drop(&mut self) {
-        eprintln!("DropState::drop({:p}) {:?}", &self, self);
         match self.count.get_mut() {
             1 => {},
             0 => panic!("token not dropped"),
